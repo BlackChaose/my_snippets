@@ -1,33 +1,33 @@
 <templateSet group="js_snippets">
-  <template name="dr" value="document.addEventListener(&quot;DOMContentLoaded&quot;, function($TEXT$){});" description="document.addEventListener(&quot;DOMContentLoaded&quot;, function(){});" toReformat="true" toShortenFQNames="true">
+  <template name="dr" value="document.addEventListener(&quot;DOMContentLoaded&quot;, function($TEXT$){});" description="вызвать callback после загрузки DOM" toReformat="true" toShortenFQNames="true">
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="cl" value="console.log('$TEXT$');" description="console.log();" toReformat="false" toShortenFQNames="true">
+  <template name="cl" value="console.log('$TEXT$');" description="записать в консоль лог" toReformat="false" toShortenFQNames="true">
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="winrel" value="window.location.reload()" description="window.location.reload()" toReformat="false" toShortenFQNames="true">
+  <template name="winrel" value="window.location.reload()" description="перезагрузить страницу" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="winloc" value="window.location = '$TEXT$'" description="window.location = 'http://ya.ru'" toReformat="false" toShortenFQNames="true">
+  <template name="winloc" value="window.location = '$TEXT$'" description="переадресация (редирект)" toReformat="false" toShortenFQNames="true">
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="geoloc" value="if(navigator.geolocation){&#10;    navigator.geolocation.getCurrentPosition(function(fsbkgb) { &#10;      var pod_kolpakom = true; &#10;    });&#10;}" description="get geolocation" toReformat="false" toShortenFQNames="true">
+  <template name="geoloc" value="if(navigator.geolocation){&#10;    navigator.geolocation.getCurrentPosition(function(fsbkgb) { &#10;      var pod_kolpakom = true; &#10;    });&#10;}" description="геолокация" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="obj_iter" value="/**************************  iteration object ********************************/&#10;    let obj = document.querySelectorAll('$SELECTOR1$');&#10;    Object.keys(obj).forEach(function(index){&#10;&#10;        if(obj[index].parentNode.querySelector('$SELECTOR2$')){&#10;            obj[index]&#10;                .parentNode&#10;                .querySelector('$SELECTOR2$')&#10;                .textContent='$TEXT$'   }&#10;&#10;       &#10;    });&#10;/**************************  /end of iteration object ********************************/" description="iteration object" toReformat="false" toShortenFQNames="true">
+  <template name="obj_iter" value="/**************************  iteration object ********************************/&#10;    let obj = document.querySelectorAll('$SELECTOR1$');&#10;    Object.keys(obj).forEach(function(index){&#10;&#10;        if(obj[index].parentNode.querySelector('$SELECTOR2$')){&#10;            obj[index]&#10;                .parentNode&#10;                .querySelector('$SELECTOR2$')&#10;                .textContent='$TEXT$'   }&#10;&#10;       &#10;    });&#10;/**************************  /end of iteration object ********************************/" description="пройтись по элементам объекта" toReformat="false" toShortenFQNames="true">
     <variable name="SELECTOR1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="SELECTOR2" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
@@ -35,12 +35,17 @@
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="def_val" value="obj.var1 = p.timeout || 5000" description="default value (ex: obj.var1 = p.timeout || 5000)" toReformat="false" toShortenFQNames="true">
+  <template name="def_val" value="obj.var1 = p.timeout || 5000" description="присвоить по умолчанию" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="ajax_get" value="var xhttp = new XMLHttpRequest();&#10;xhttp.onreadystatechange = function() {&#10;    if (this.readyState == 4 &amp;&amp; this.status == 200) {&#10;       // Typical action to be performed when the document is ready:&#10;       document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;&#10;    }&#10;};&#10;xhttp.open(&quot;GET&quot;, &quot;filename&quot;, true);&#10;xhttp.send();" description="xmlhttprequest get template" toReformat="false" toShortenFQNames="true">
+  <template name="ajax_get" value="var xhttp = new XMLHttpRequest();&#10;xhttp.onreadystatechange = function() {&#10;    if (this.readyState == 4 &amp;&amp; this.status == 200) {&#10;       // Typical action to be performed when the document is ready:&#10;       document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;&#10;    }&#10;};&#10;xhttp.open(&quot;GET&quot;, &quot;filename&quot;, true);&#10;xhttp.send();" description="ajax запрос,  используем метод get" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="ajax_post" value="var xhttp = new XMLHttpRequest();&#10;xhttp.onreadystatechange = function() {&#10;    if (this.readyState == 4 &amp;&amp; this.status == 200) {&#10;       // Typical action to be performed when the document is ready:&#10;       document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;&#10;    }&#10;};&#10;xhttp.open(&quot;POST&quot;, &quot;ajax_test.php&quot;, true);&#10;xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);&#10;xhttp.send(&quot;fname=Severus&amp;lname=Snape&quot;);" description="ajax запрос, используем метод post" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
