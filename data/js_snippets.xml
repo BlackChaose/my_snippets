@@ -1,4 +1,4 @@
-<templateSet group="blackchaose.ascetic">
+<templateSet group="js_snippets">
   <template name="dr" value="document.addEventListener(&quot;DOMContentLoaded&quot;, function($TEXT$){});" description="document.addEventListener(&quot;DOMContentLoaded&quot;, function(){});" toReformat="true" toShortenFQNames="true">
     <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
