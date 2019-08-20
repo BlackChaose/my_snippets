@@ -1,0 +1,18 @@
+<templateSet group="php_snippets">
+  <template name="pdo_connect" value="&lt;?php&#10;//---------------------------------------------------------------//&#10;$host = 'localhost';&#10;$db   = '$NAMEDB$';&#10;$user = '$NAMEUSER$';&#10;$pass = '$PASSKEY$';&#10;$charset = 'utf8mb4';&#10;&#10;$dsn = &quot;mysql:host=$host;dbname=$db;charset=$charset&quot;;&#10;$opt = array(&#10;    \PDO::ATTR_ERRMODE            =&gt; \PDO::ERRMODE_EXCEPTION,&#10;    \PDO::ATTR_DEFAULT_FETCH_MODE =&gt; \PDO::FETCH_ASSOC,&#10;    \PDO::ATTR_EMULATE_PREPARES   =&gt; false,&#10;    \PDO::MYSQL_ATTR_INIT_COMMAND =&gt; &quot;SET CHARACTER SET utf8&quot;&#10;);&#10;//$pdo = new \PDO($dsn, $user, $pass, $opt);&#10;try {&#10;    $pdo = new \PDO($dsn, $user, $pass, $opt);&#10;} catch (\PDOException $e) {&#10;    throw new \PDOException($e-&gt;getMessage(), (int)$e-&gt;getCode());&#10;}&#10;//---------------------------------------------------------------//&#10;?&gt;" description="настройка подключения к БД" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMEDB" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAMEUSER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PASSKEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="pdo_request" value="/********************************************************/&#10;$Param=$PARAM$;&#10;$sqlquery  = &quot;SELECT * FROM $TABLE$ WHERE $COLUMN$ = ? LIMIT 1;&quot;;&#10;$stmt =$pdo-&gt;prepare($sqlquery);&#10;$stmt-&gt;execute(array($PARAM$));&#10;$data = $stmt-&gt;fetchAll();&#10;foreach($data as $row)&#10;{   &#10;    print_r($row);&#10;}&#10;/********************************************************/" description="запрос к БД" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TABLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="COLUMN" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
