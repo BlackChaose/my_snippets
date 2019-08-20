@@ -1,8 +1,9 @@
 var showSnippets = function(){
 	var path="data/";
-	var names=["js_snippets",];
-	var fileName=path+names[0]+".xml";
-	console.log(fileName);
+	var names=["js_snippets","php_snippets"];
+	var fileName1=path+names[0]+".xml";
+	var fileName2=path+names[1]+".xml";
+
 	
 	var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -11,7 +12,17 @@ var showSnippets = function(){
 			}
 		};
 		
-	xhttp.open("GET", fileName, true);
+	xhttp.open("GET", fileName1, true);
+	xhttp.send();
+
+	var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				parseXml(this);
+			}
+		};
+		
+	xhttp.open("GET", fileName2, true);
 	xhttp.send();
 
 function parseXml(xml) {
