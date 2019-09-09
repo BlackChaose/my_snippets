@@ -8,7 +8,7 @@ var showSnippets = function(){
 	var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				parseXml(this);
+				parseXml(this, fileName1);
 			}
 		};
 		
@@ -18,21 +18,27 @@ var showSnippets = function(){
 	var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				parseXml(this);
+				parseXml(this,fileName2);
 			}
 		};
 		
 	xhttp.open("GET", fileName2, true);
 	xhttp.send();
 
-function parseXml(xml) {
+function parseXml(xml, namefile) {
     var xmlDoc = xml.responseXML;
     
     var app = document.getElementById("app");
     //~ var objs = xmlDoc.querySelectorAll("template");
     var objs = xmlDoc.getElementsByTagName("template");
 
-    
+    let objTitle = document.createElement('h2');
+        objTitle.className="row align-items-center justify-content-center mb-5 p-2";
+        objTitle.style="color: green; border: 1px dotted lightgreen;";
+        objTitle.textContent = namefile.match(/\/.*\./)[0].slice(1,-1).toUpperCase();
+    app.appendChild(objTitle);
+
+
 	 Object.keys(objs).forEach(function(index){
 		
 			let objRow=document.createElement('div');
