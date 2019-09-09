@@ -1,6 +1,6 @@
 var showSnippets = function(){
 	var path="data/";
-	var names=["js_snippets","php_snippets"];
+	var names=["js_snippets","php_snippets","sql_snippets"];
 	var fileName1 = path+names[0]+".xml";
 	var fileName2 = path+names[1]+".xml";
 	var fileName3 = path+names[2]+".xml";
