@@ -89,6 +89,8 @@ function parseXml(xml, namefile) {
 				let objImg = document.createElement('img');
 				let srcImgRaw=objs[index].attributes.description.textContent;
 				console.log(srcImgRaw);
+				let srcImg = srcImgRaw.match(/\<\{.*\}\>/)[0].slice(1,-1).slice(1,-1);
+				console.warn(srcImg);
 			}
 			
 			objCopy.addEventListener('click',function(e){
