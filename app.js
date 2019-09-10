@@ -92,6 +92,8 @@ function parseXml(xml, namefile) {
 				if (srcImgRaw.length > 0){
 					let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1,-1).slice(1,-1);
 					console.warn(srcImg);
+					objImg.src = 'img/'+srcImg;
+					objCol2.append(objImg);
 				}
 			}
 			
