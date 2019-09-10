@@ -14,7 +14,7 @@
       <option name="SQL" value="true" />
     </context>
   </template>
-  <template name="sql_full_join" value="--&#10;SELECT * FROM TableA A FULL OUTER JOIN TableB B ON A.key = B.key&#10;--" description="полное объединение таблиц ( А или  Б )" toReformat="false" toShortenFQNames="true">
+  <template name="sql_full_join" value="--&#10;SELECT * FROM TableA A FULL OUTER JOIN TableB B ON A.key = B.key&#10;--" description="полное объединение таблиц ( А или  Б ) &lt;{001.png}&gt;" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="SQL" value="true" />
     </context>
