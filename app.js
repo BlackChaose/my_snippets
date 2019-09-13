@@ -88,11 +88,12 @@ function parseXml(xml, namefile) {
 			if(namefile=='data/sql_snippets.xml'){
 				let objImg = document.createElement('img');
 				let srcImgRaw=objs[index].attributes.description.textContent;
-				console.log(srcImgRaw);
+				//console.log(srcImgRaw);
 				if (srcImgRaw.length > 0){
 					let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1,-1).slice(1,-1);
-					console.warn(srcImg);
+					//console.warn(srcImg);
 					objImg.src = 'img/'+srcImg;
+					objImg.width= 100;
 					objCol2.append(objImg);
 				}
 			}
