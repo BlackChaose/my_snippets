@@ -86,6 +86,9 @@ function parseXml(xml, namefile) {
 			objRow.append(objCol1);
 			objRow.append(objCopy);
 			if(namefile=='data/sql_snippets.xml'){
+				let wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;
+				console.warn(wl);
+				objCol2.textContent =  objCol2.textContent.slice(0, wl);
 				let objImg = document.createElement('img');
 				let srcImgRaw=objs[index].attributes.description.textContent;
 				//console.log(srcImgRaw);
