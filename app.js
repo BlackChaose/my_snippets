@@ -39,7 +39,7 @@ function parseXml(xml, namefile) {
     var xmlDoc = xml.responseXML;
     
     var app = document.getElementById("app");
-    //~ var objs = xmlDoc.querySelectorAll("template");
+
     var objs = xmlDoc.getElementsByTagName("template");
 
     let objTitle = document.createElement('h2');
