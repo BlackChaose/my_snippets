@@ -90,10 +90,10 @@ function parseXml(xml, namefile) {
 				objCol2.textContent =  objCol2.textContent.slice(0, wl);
 				let objImg = document.createElement('img');
 				let srcImgRaw=objs[index].attributes.description.textContent;
-				//console.log(srcImgRaw);
+				
 				if (srcImgRaw.length > 0){
 					let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1,-1).slice(1,-1);
-					//console.warn(srcImg);
+					
 					objImg.src = 'img/'+srcImg;
 					objImg.width= 100;
 					objCol2.append(objImg);
