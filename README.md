@@ -10,3 +10,4 @@
 
 ./app.js - скрипт чтения сниппетов из ./data/*.xml и отображения их в index.html
 
+./img - images
