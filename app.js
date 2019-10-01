@@ -39,7 +39,7 @@ function parseXml(xml, namefile) {
     var xmlDoc = xml.responseXML;
     
     var app = document.getElementById("app");
-    //~ var objs = xmlDoc.querySelectorAll("template");
+
     var objs = xmlDoc.getElementsByTagName("template");
 
     let objTitle = document.createElement('h2');
@@ -86,13 +86,15 @@ function parseXml(xml, namefile) {
 			objRow.append(objCol1);
 			objRow.append(objCopy);
 			if(namefile=='data/sql_snippets.xml'){
+				let wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;				
+				objCol2.textContent =  objCol2.textContent.slice(0, wl);
 				let objImg = document.createElement('img');
 				let srcImgRaw=objs[index].attributes.description.textContent;
-				console.log(srcImgRaw);
+				
 				if (srcImgRaw.length > 0){
-					let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1,-1);
-					console.warn(srcImg);
+					let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1,-1).slice(1,-1);
 					objImg.src = 'img/'+srcImg;
+					objImg.width= 110;
 					objCol2.append(objImg);
 				}
 			}
