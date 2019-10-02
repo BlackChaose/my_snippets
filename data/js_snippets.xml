@@ -56,4 +56,9 @@
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
+  <template name="cloneObjJSON" value="function jsonCopy(src) {&#10;    return JSON.parse(JSON.stringify(src));&#10;  }" description="clone object via json" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
