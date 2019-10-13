@@ -1,0 +1,7 @@
+<templateSet group="linux_commands">
+  <template name="mysqldump" value="### ----------------------------&#10;mysqldump --single-transaction -u &lt;$USERNAME&gt; -h localhost -p&lt;$PASSKEY&gt; &lt;$DBNAME&gt; | gzip -9 &gt; backup_&lt;DBNAME&gt;.`date +%d-%m-%Y_%H-%M`.sql.gz&#10;### ----------------------------" description="backup mysql database" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Bash" value="true" />
+    </context>
+  </template>
+</templateSet>
