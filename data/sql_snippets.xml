@@ -1,0 +1,23 @@
+<templateSet group="sql_snippets">
+  <template name="sql_left_join" value="--&#10;SELECT a, b FROM DB.tableOne LEFT JOIN DB.tableTwo ON tableOne.id = tableTwo.id;&#10;--" description="объединение таблиц слева ( А  или (А и Б) ) &lt;{002.png}&gt;" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="sql_inner_join" value="--&#10;SELECT * FROM TableA A INNER JOIN TableB B ON A.key = B.key&#10;--" description="пересечение таблиц ( А и Б ) &lt;{003.png}&gt;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="sql_right_join" value="--&#10;SELECT * FROM TableA A RIGHT JOIN TableB B ON A.key = B.key&#10;--" description="объединение таблиц справа (Б или (А и Б)) &lt;{004.png}&gt;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="sql_full_join" value="--&#10;SELECT * FROM TableA A FULL OUTER JOIN TableB B ON A.key = B.key&#10;--" description="полное объединение таблиц ( А или  Б ) &lt;{001.png}&gt;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="sql_pirs_join" value="--&#10;SELECT * FROM TableA A FULL OUTER JOIN TableB B ON A.key = B.key&#10;--" description="стрелка пирса ?   !(А и Б)&lt;{005.png}&gt;" toReformat="false" toShortenFQNames="true" />
+</templateSet>

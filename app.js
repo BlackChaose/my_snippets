@@ -1,9 +1,9 @@
 var showSnippets = function(){
 	var path="data/";
-	var names=["js_snippets","php_snippets"];
-	var fileName1=path+names[0]+".xml";
-	var fileName2=path+names[1]+".xml";
-
+	var names=["js_snippets","php_snippets","sql_snippets"];
+	var fileName1 = path + names[0] + ".xml";
+	var fileName2 = path + names[1] + ".xml";
+	var fileName3 = path + names[2] + ".xml";
 	
 	var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -25,11 +25,21 @@ var showSnippets = function(){
 	xhttp.open("GET", fileName2, true);
 	xhttp.send();
 
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			parseXml(this, fileName3);
+		}
+	};
+	
+	xhttp.open("GET", fileName3, true);
+	xhttp.send();
+
 function parseXml(xml, namefile) {
     var xmlDoc = xml.responseXML;
     
     var app = document.getElementById("app");
-    //~ var objs = xmlDoc.querySelectorAll("template");
+
     var objs = xmlDoc.getElementsByTagName("template");
 
     let objTitle = document.createElement('h2');
@@ -75,6 +85,19 @@ function parseXml(xml, namefile) {
 			objRow.append(objTitle);	
 			objRow.append(objCol1);
 			objRow.append(objCopy);
+			if(namefile=='data/sql_snippets.xml'){
+				let wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;				
+				objCol2.textContent =  objCol2.textContent.slice(0, wl);
+				let objImg = document.createElement('img');
+				let srcImgRaw=objs[index].attributes.description.textContent;
+				
+				if (srcImgRaw.length > 0){
+					let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1,-1).slice(1,-1);
+					objImg.src = 'img/'+srcImg;
+					objImg.width= 110;
+					objCol2.append(objImg);
+				}
+			}
 			
 			objCopy.addEventListener('click',function(e){
 				console.log(e.target.parentNode.previousSibling.childNodes[0].textContent);				
