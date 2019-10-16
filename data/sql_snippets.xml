@@ -20,4 +20,9 @@
     </context>
   </template>
   <template name="sql_pirs_join" value="--&#10;SELECT * FROM TableA A FULL OUTER JOIN TableB B ON A.key = B.key&#10;--" description="стрелка пирса ?   !(А и Б)&lt;{005.png}&gt;" toReformat="false" toShortenFQNames="true" />
+  <template name="REGEXP_ex1" value="###-------------------------------------&#10;SELECT * from &lt;table.column&gt; AS ee  where ee.&lt;column&gt; REGEXP &quot;^Название стоблца №.*[0-9]$&quot;;&#10;###-------------------------------------" description="example REGEXP 1" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
 </templateSet>
