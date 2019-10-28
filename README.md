@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/BlackChaose/my_snippets.svg?branch=master)](https://travis-ci.org/BlackChaose/my_snippets)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a6f34cd25c2fecdfb89f/maintainability)](https://codeclimate.com/github/BlackChaose/my_snippets/maintainability)
 
 ---
 

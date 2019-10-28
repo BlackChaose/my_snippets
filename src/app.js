@@ -1,4 +1,4 @@
-
+/* eslint-disable import/prefer-default-export */
 const showSnippets = () => {
   const path = 'data/';
   let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
@@ -82,7 +82,7 @@ const showSnippets = () => {
   };
   const readAndDraw = (fileName) => {
     const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+    xhttp.onreadystatechange = () => {
       if (this.readyState === 4 && this.status === 200) {
         parseXml(this, fileName);
       }
