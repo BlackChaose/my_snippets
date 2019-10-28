@@ -1,29 +1,15 @@
-var showSnippets = function () {
-  var path = 'data/';
-  var names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands','Angular','AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
+const showSnippets = function () {
+  const path = 'data/';
+  let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
 
-  names = names.map(function(el){
-    return path + el + '.xml';
-  });
+  names = names.map((el) => `${path}${el}.xml`);
 
-  function readAndDraw (fileName) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        parseXml(this, fileName);
-      }
-    };
+  const parseXml = (xml, namefile) => {
+    const xmlDoc = xml.responseXML;
 
-    xhttp.open('GET', fileName, true);
-    xhttp.send();
-  };
+    const app = document.getElementById('app');
 
-  function parseXml (xml, namefile) {
-    var xmlDoc = xml.responseXML;
-
-    var app = document.getElementById('app');
-
-    var objs = xmlDoc.getElementsByTagName('template');
+    const objs = xmlDoc.getElementsByTagName('template');
 
     let objTitle = document.createElement('h2');
     objTitle.className = 'row align-items-center justify-content-center mb-5 p-2';
@@ -31,34 +17,33 @@ var showSnippets = function () {
     objTitle.textContent = namefile.match(/\/.*\./)[0].slice(1, -1).toUpperCase();
     app.appendChild(objTitle);
 
-    Object.keys(objs).forEach(function (index) {
-
-      let objRow = document.createElement('div');
+    Object.keys(objs).forEach((index) => {
+      const objRow = document.createElement('div');
       objRow.className = 'row align-items-center justify-content-center mb-5';
       objRow.style = 'border: 1px solid gray;';
 
-      let objTitle = document.createElement('div');
+      objTitle = document.createElement('div');
       objTitle.className = 'numTitle col-1';
       objTitle.textContent = objs[index].attributes.name.textContent;
 
-      let objCol1 = document.createElement('div');
+      const objCol1 = document.createElement('div');
       objCol1.className = 'col-8 align-self-center';
 
-      let objCode = document.createElement('pre');
+      const objCode = document.createElement('pre');
       objCode.className = 'text-success';
       objCode.textContent = objs[index].attributes.value.textContent;
       objCol1.append(objCode);
 
-      let objCopy = document.createElement('div');
+      const objCopy = document.createElement('div');
       objCopy.className = 'col-1 copy-btn';
-      let objCopyBtn = document.createElement('button');
+      const objCopyBtn = document.createElement('button');
       objCopyBtn.type = 'button';
       objCopyBtn.className = 'btn btn-light btn-clipboard';
       objCopyBtn.dataOriginalTitel = 'Copy to clipboard';
       objCopyBtn.textContent = 'Copy';
       objCopy.append(objCopyBtn);
 
-      let objCol2 = document.createElement('div');
+      const objCol2 = document.createElement('div');
       objCol2.className = 'col-2 align-self-center text-body';
       objCol2.textContent = objs[index].attributes.description.textContent;
       objCol2.style = 'word-wrap: break-word;';
@@ -66,23 +51,23 @@ var showSnippets = function () {
       objRow.append(objTitle);
       objRow.append(objCol1);
       objRow.append(objCopy);
-      if (namefile == 'data/sql_snippets.xml') {
-        let wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;
+      if (namefile === 'data/sql_snippets.xml') {
+        const wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;
         objCol2.textContent = objCol2.textContent.slice(0, wl);
-        let objImg = document.createElement('img');
-        let srcImgRaw = objs[index].attributes.description.textContent;
+        const objImg = document.createElement('img');
+        const srcImgRaw = objs[index].attributes.description.textContent;
 
         if (srcImgRaw.length > 0) {
-          let srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1, -1).slice(1, -1);
-          objImg.src = 'img/' + srcImg;
+          const srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1, -1).slice(1, -1);
+          objImg.src = `img/${srcImg}`;
           objImg.width = 110;
           objCol2.append(objImg);
         }
       }
 
-      objCopy.addEventListener('click', function (e) {
+      objCopy.addEventListener('click', (e) => {
         console.log(e.target.parentNode.previousSibling.childNodes[0].textContent);
-        let inp = document.createElement('input');
+        const inp = document.createElement('input');
         document.body.appendChild(inp);
         inp.value = e.target.parentNode.previousSibling.childNodes[0].textContent;
         inp.select();
@@ -93,8 +78,17 @@ var showSnippets = function () {
       objRow.append(objCol2);
       app.append(objRow);
     });
+  };
+  const readAndDraw = (fileName) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        parseXml(this, fileName);
+      }
+    };
 
-  }
-
+    xhttp.open('GET', fileName, true);
+    xhttp.send();
+  };
   names.forEach(readAndDraw);
 };

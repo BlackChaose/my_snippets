@@ -13,7 +13,8 @@
     "url": "git+https://https://github.com/BlackChaose/my_snippets.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "img"
   ],
   "author": "",
   "license": "ISC",
