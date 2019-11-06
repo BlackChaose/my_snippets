@@ -25,4 +25,9 @@
       <option name="SQL" value="true" />
     </context>
   </template>
+  <template name="sql_add_right_for_dump" value="GRANT USAGE ON *.* TO '&lt;userName&gt;'@'localhost' IDENTIFIED BY '&lt;userpassword&gt;';&#10;GRANT SELECT, LOCK TABLES ON `&lt;dbName&gt;`.* TO '&lt;userName&gt;'@'localhost';&#10;GRANT SELECT, LOCK TABLES, SHOW VIEW, EVENT, TRIGGER ON `&lt;dbName&gt;`.* TO '&lt;userName&gt;'@'localhost';&#10;GRANT TRIGGER ON `reestr`.* TO '&lt;dbName&gt;'@'localhost';" description="дать права пользоватею на использование mysqldump для снятия дампа бд" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
 </templateSet>
