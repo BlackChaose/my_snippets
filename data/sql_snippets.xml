@@ -30,4 +30,9 @@
       <option name="SQL" value="true" />
     </context>
   </template>
+  <template name="strict_mode_to_null" value="#to show current settings&#10;SELECT @@GLOBAL.sql_mode;performance_schema&#10;#to set strict mode to null&#10;SET @@GLOBAL.sql_mode=''" description="disable_strict_mode" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
 </templateSet>
