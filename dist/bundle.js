@@ -120,7 +120,7 @@ var _app = require("./app.js");
 
 // import 'jquery'; //eslint-disable-line
 // import 'bootstrap';//eslint-disable-line
-// import 'popper.js';//eslint-disable-line
+// import 'popper.js';//eslint-disable-line//todo add mimify preset in babel for minify files!
 // eslint-disable-line
 const a = _app.showSnippets;
 a(() => {
