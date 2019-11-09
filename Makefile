@@ -12,6 +12,9 @@ devsrv:
 	php -S localhost:5000
 bundle:
 	browserify -e ./dist/index.js > ./dist/bundle.js
+
+instbrow:
+	npm install -g browerify
 asm:
 	npx eslint .
 	npm run build
