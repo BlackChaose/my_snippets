@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.showSnippets = void 0;
 
-const showSnippets = () => {
+/* eslint-disable import/prefer-default-export */
+const showSnippets = cbFunc => {
+  console.log('in showSnippets');
   const path = 'data/';
   let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
   names = names.map(el => `${path}${el}.xml`);
@@ -15,11 +17,15 @@ const showSnippets = () => {
     const xmlDoc = xml.responseXML;
     const app = document.getElementById('app');
     const objs = xmlDoc.getElementsByTagName('template');
+    const blk = document.createElement('div');
+    blk.className = 'content-block';
+    const cntnr = document.createElement('div');
+    cntnr.className = 'collapse cntnr';
     let objTitle = document.createElement('h2');
     objTitle.className = 'row align-items-center justify-content-center mb-5 p-2';
-    objTitle.style = 'color: green; border: 1px dotted lightgreen;';
+    objTitle.style = 'color: green; border: 1px dotted lightgreen; cursor: pointer;';
     objTitle.textContent = namefile.match(/\/.*\./)[0].slice(1, -1).toUpperCase();
-    app.appendChild(objTitle);
+    blk.appendChild(objTitle);
     Object.keys(objs).forEach(index => {
       const objRow = document.createElement('div');
       objRow.className = 'row align-items-center justify-content-center mb-5';
@@ -50,16 +56,21 @@ const showSnippets = () => {
       objRow.append(objCopy);
 
       if (namefile === 'data/sql_snippets.xml') {
-        const wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;
+        const txL = objCol2.textContent.match(/<{.*}>/) ? objCol2.textContent.match(/<{.*}>/)[0].length : 0;
+        const wl = objCol2.textContent.length - txL;
         objCol2.textContent = objCol2.textContent.slice(0, wl);
         const objImg = document.createElement('img');
         const srcImgRaw = objs[index].attributes.description.textContent;
 
         if (srcImgRaw.length > 0) {
-          const srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1, -1).slice(1, -1);
-          objImg.src = `img/${srcImg}`;
-          objImg.width = 110;
-          objCol2.append(objImg);
+          const strSrcImgRaw = srcImgRaw.match(/<{.*}>/) ? srcImgRaw.match(/<{.*}>/)[0] : '';
+
+          if (strSrcImgRaw !== '') {
+            const srcImg = strSrcImgRaw.slice(1, -1).slice(1, -1);
+            objImg.src = `img/${srcImg}`;
+            objImg.width = 110;
+            objCol2.append(objImg);
+          }
         }
       }
 
@@ -73,24 +84,31 @@ const showSnippets = () => {
         inp.remove();
       });
       objRow.append(objCol2);
-      app.append(objRow);
+      cntnr.append(objRow);
     });
+    blk.append(cntnr);
+    app.append(blk);
   };
 
-  const readAndDraw = fileName => {
+  const readAndDraw = fileName => new Promise((resolve, reject) => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = function () {
-      if (this.readyState === 4 && this.status === 200) {
-        parseXml(this, fileName);
+    xhttp.onreadystatechange = () => {
+      if (xhttp.readyState === XMLHttpRequest.DONE && xhttp.status === 200) {
+        parseXml(xhttp, fileName);
+        resolve(xhttp.responseText);
       }
     };
 
     xhttp.open('GET', fileName, true);
-    xhttp.send();
-  };
 
-  names.forEach(readAndDraw);
+    xhttp.onerror = () => reject(xhttp.statusText);
+
+    xhttp.send();
+  });
+
+  const arrPromises = names.map(readAndDraw);
+  Promise.all(arrPromises).then(cbFunc);
 };
 
 exports.showSnippets = showSnippets;
@@ -100,8 +118,24 @@ exports.showSnippets = showSnippets;
 
 var _app = require("./app.js");
 
+// import 'jquery'; //eslint-disable-line
+// import 'bootstrap';//eslint-disable-line
+// import 'popper.js';//eslint-disable-line
+// eslint-disable-line
 const a = _app.showSnippets;
-console.log(_app.showSnippets);
-a();
+a(() => {
+  const list = document.querySelectorAll('.collapse');
+  Object.keys(list).forEach(index => {
+    list[index].parentElement.addEventListener('click', () => {
+      if (list[index].style.display === 'block') {
+        list[index].style.display = 'none';
+      } else if (list[index].style.display === '' || list[index].style.display === 'none') {
+        list[index].style.display = 'block';
+      }
+
+      return 0;
+    });
+  });
+});
 
 },{"./app.js":1}]},{},[2]);
