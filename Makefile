@@ -14,7 +14,7 @@ bundle:
 	browserify -e ./dist/index.js > ./dist/bundle.js
 
 instbrow:
-	npm install -g browerify
+	npm install -g browserify
 asm:
 	npx eslint .
 	npm run build
