@@ -49,7 +49,7 @@ const showSnippets = cbFunc => {
       objCopy.append(objCopyBtn);
       const objCol2 = document.createElement('div');
       objCol2.className = 'col-2 align-self-center text-body';
-      objCol2.textContent = objs[index].attributes.description.textContent ? objs[index].attributes.description.textContent : null; // eslint-disable-line
+      objCol2.textContent = objs[index].attributes.description ? objs[index].attributes.description.textContent : null; // eslint-disable-line
 
       objCol2.style = 'word-wrap: break-word;';
       objRow.append(objTitle);
