@@ -25,4 +25,10 @@
       <option name="PHP" value="true" />
     </context>
   </template>
+  <template name="setLog_0x" value="//*************************************************************************************//&#10;define('LOG_PATH_0x', __DIR__ . '/loggers_0x_2.log');&#10;function setLog_0x($str, $file = LOG_PATH_0x)&#10;{&#10;    if ($file === &quot;default&quot;) {&#10;        $file = LOG_PATH;&#10;    }&#10;    $tmp_file = fopen($file, 'a');&#10;    $date = date('Y-m-d H:i:s');&#10;    $str_res = $date . &quot; =&gt;  &quot; . $str;&#10;    fwrite($tmp_file, $str_res . &quot;\r\n&quot;);&#10;    fclose($tmp_file);&#10;    return 0;&#10;}&#10;//*************************************************************************************//" description="logger simple" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="get_json" value="// Takes raw data from the request&#10;$json = file_get_contents('php://input');&#10;&#10;// Converts it into a PHP object&#10;$data = json_decode($json);" description="template for get json from raw_data (data was been sended with header 'Application/json')" toReformat="false" toShortenFQNames="true" />
 </templateSet>
