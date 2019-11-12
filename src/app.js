@@ -2,7 +2,7 @@
 const showSnippets = (cbFunc) => {
   console.log('in showSnippets');
   const path = 'data/';
-  let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
+  let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands','curl_console.xml', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
 
   names = names.map((el) => `${path}${el}.xml`);
 
