@@ -16,3 +16,7 @@
 ./app.js - скрипт чтения сниппетов из ./data/*.xml и отображения их в index.html
 
 ./img - images
+
+### update: 09-11-2019 ###
+
+./dist/bunlde.js - сборка из index.js и app.js

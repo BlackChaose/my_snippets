@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-const showSnippets = () => {
+const showSnippets = (cbFunc) => {
+  console.log('in showSnippets');
   const path = 'data/';
   let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
 
@@ -11,12 +12,18 @@ const showSnippets = () => {
     const app = document.getElementById('app');
 
     const objs = xmlDoc.getElementsByTagName('template');
+    const blk = document.createElement('div');
+    blk.className = 'content-block';
+
+    const cntnr = document.createElement('div');
+    cntnr.className = 'collapse cntnr';
 
     let objTitle = document.createElement('h2');
     objTitle.className = 'row align-items-center justify-content-center mb-5 p-2';
-    objTitle.style = 'color: green; border: 1px dotted lightgreen;';
+    objTitle.style = 'color: green; border: 1px dotted lightgreen; cursor: pointer;';
     objTitle.textContent = namefile.match(/\/.*\./)[0].slice(1, -1).toUpperCase();
-    app.appendChild(objTitle);
+
+    blk.appendChild(objTitle);
 
     Object.keys(objs).forEach((index) => {
       const objRow = document.createElement('div');
@@ -53,16 +60,20 @@ const showSnippets = () => {
       objRow.append(objCol1);
       objRow.append(objCopy);
       if (namefile === 'data/sql_snippets.xml') {
-        const wl = objCol2.textContent.length - objCol2.textContent.match(/<{.*}>/)[0].length;
+        const txL = (objCol2.textContent.match(/<{.*}>/)) ? objCol2.textContent.match(/<{.*}>/)[0].length : 0;
+        const wl = objCol2.textContent.length - txL;
         objCol2.textContent = objCol2.textContent.slice(0, wl);
         const objImg = document.createElement('img');
         const srcImgRaw = objs[index].attributes.description.textContent;
 
         if (srcImgRaw.length > 0) {
-          const srcImg = srcImgRaw.match(/<{.*}>/)[0].slice(1, -1).slice(1, -1);
-          objImg.src = `img/${srcImg}`;
-          objImg.width = 110;
-          objCol2.append(objImg);
+          const strSrcImgRaw = (srcImgRaw.match(/<{.*}>/)) ? srcImgRaw.match(/<{.*}>/)[0] : '';
+          if (strSrcImgRaw !== '') {
+            const srcImg = strSrcImgRaw.slice(1, -1).slice(1, -1);
+            objImg.src = `img/${srcImg}`;
+            objImg.width = 110;
+            objCol2.append(objImg);
+          }
         }
       }
 
@@ -77,21 +88,28 @@ const showSnippets = () => {
       });
 
       objRow.append(objCol2);
-      app.append(objRow);
+      cntnr.append(objRow);
     });
+    blk.append(cntnr);
+    app.append(blk);
   };
-  const readAndDraw = (fileName) => {
+
+  const readAndDraw = (fileName) => new Promise((resolve, reject) => {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
-      if (this.readyState === 4 && this.status === 200) {
-        parseXml(this, fileName);
+      if (xhttp.readyState === XMLHttpRequest.DONE && xhttp.status === 200) {
+        parseXml(xhttp, fileName);
+        resolve(xhttp.responseText);
       }
     };
 
     xhttp.open('GET', fileName, true);
+    xhttp.onerror = () => reject(xhttp.statusText);
     xhttp.send();
-  };
-  names.forEach(readAndDraw);
+  });
+
+  const arrPromises = names.map(readAndDraw);
+  Promise.all(arrPromises).then(cbFunc);
 };
 
 export { showSnippets };
