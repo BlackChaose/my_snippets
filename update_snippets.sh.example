@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# write your paths for source dir and destination dir
+
+cp -Rv --remove-destination <./source/*> <./destination>

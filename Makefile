@@ -20,3 +20,5 @@ asm:
 	npm run build
 	browserify -e ./dist/index.js > ./dist/bundle.js
 
+update:
+	./update_snippets.sh

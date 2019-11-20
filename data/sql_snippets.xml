@@ -87,7 +87,7 @@
       <option name="SQL" value="true" />
     </context>
   </template>
-  <template name="read_from_schema" value="#--------------------------------&#10;select `column_name`, `column_type`, `column_default`, `column_comment`&#10;from `information_schema`.`COLUMNS` &#10;where `table_name` = '$TABLE_NAME$' &#10;and `table_schema` = '$DB_NAME$';&#10;#--------------------------------" toReformat="false" toShortenFQNames="true">
+  <template name="read_from_schema" value="#--------------------------------&#10;select `column_name`, `column_type`, `column_default`, `column_comment`&#10;from `information_schema`.`COLUMNS` &#10;where `table_name` = '$TABLE_NAME$' &#10;and `table_schema` = '$DB_NAME$';&#10;#--------------------------------" description="read information about column type and comment from schema" toReformat="false" toShortenFQNames="true">
     <variable name="TABLE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="DB_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <context>

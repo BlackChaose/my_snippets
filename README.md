@@ -17,6 +17,22 @@
 
 ./img - images
 
+
+---
+
+
 ### update: 09-11-2019 ###
 
 ./dist/bunlde.js - сборка из index.js и app.js
+
+### update: 20-11-2019 ###
+	
+• update /data
+
+• add update_snippets.sh.example - change it before use!
+
+• change Makefile
+
+• fix bug in app.js
+
+ 

@@ -26,6 +26,10 @@ const showSnippets = (cbFunc) => {
     blk.appendChild(objTitle);
 
     Object.keys(objs).forEach((index) => {
+      // noinspection JSAnnotator
+      if (objs[index] === null || objs[index] === undefined) {
+        return;
+      }
       const objRow = document.createElement('div');
       objRow.className = 'row align-items-center justify-content-center mb-5';
       objRow.style = 'border: 1px solid gray;';
@@ -53,20 +57,23 @@ const showSnippets = (cbFunc) => {
 
       const objCol2 = document.createElement('div');
       objCol2.className = 'col-2 align-self-center text-body';
-      objCol2.textContent = (objs[index]) ? objs[index].attributes.description.textContent : null; // eslint-disable-line
+      objCol2.textContent = (objs[index].attributes.description) ? objs[index].attributes.description.textContent : null; // eslint-disable-line
       objCol2.style = 'word-wrap: break-word;';
 
       objRow.append(objTitle);
       objRow.append(objCol1);
       objRow.append(objCopy);
       if (namefile === 'data/sql_snippets.xml') {
+        console.log(namefile);
         const txL = (objCol2.textContent.match(/<{.*}>/)) ? objCol2.textContent.match(/<{.*}>/)[0].length : 0;
         const wl = objCol2.textContent.length - txL;
         objCol2.textContent = objCol2.textContent.slice(0, wl);
         const objImg = document.createElement('img');
-        const srcImgRaw = objs[index].attributes.description.textContent;
 
-        if (srcImgRaw.length > 0) {
+        const srcImgRaw = (objs[index].attributes.description !== null && objs[index].attributes.description !== undefined)// eslint-disable-line
+          ? objs[index].attributes.description.textContent : null; // eslint-disable-line
+
+        if (srcImgRaw !== null && srcImgRaw.length > 0) {
           const strSrcImgRaw = (srcImgRaw.match(/<{.*}>/)) ? srcImgRaw.match(/<{.*}>/)[0] : '';
           if (strSrcImgRaw !== '') {
             const srcImg = strSrcImgRaw.slice(1, -1).slice(1, -1);

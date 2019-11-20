@@ -7,9 +7,10 @@
   <template name="mount_network_drive" value="### -------------------------------------&#10;sudo -S mkdir /mnt/sharedfolder/ &#10;sudo -S mount -t cifs -w -o username=nabed -o password=nabed //192.168.0.58/sharedfolder /mnt/sharedfolder/&#10;### -------------------------------------" description="mount network drive (samba)" toReformat="false" toShortenFQNames="true" />
   <template name="scp_files" value="### ------------------------------------------------------------------&#10;### from:&#10;scp &lt;user_name&gt;@&lt;server_name.ru&gt;:&lt;full_path_to_server's file&gt; &lt;local path to file ex: ./&gt;&#10;&#10;### ---------------&#10;### to&#10;&#10;scp &lt;path_to_file_src&gt; &lt;user_name&gt;@&lt;server&gt;:&lt;path_to_file_dest&gt;&#10;&#10;### ------------------------------------------------------------------" description="copy file to server throw ssh" toReformat="false" toShortenFQNames="true" />
   <template name="ssh-generate" value="### -------------------------------------------------------&#10;&#10;$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;&#10;&#10;### -------------------------------------------------------" description="generat rsa key (from github man)" toReformat="false" toShortenFQNames="true" />
-  <template name="cp_dir" value="#------------------------&#10;cp -a /source/. /dest/&#10;#------------------------" description="copy one drictory to another" toReformat="false" toShortenFQNames="true">
+  <template name="cp_dir" value="#------------------------&#10;cp -a /source/. /dest/&#10;#------------------------&#10;" description="copy one drictory to another" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="Bash" value="true" />
     </context>
   </template>
+  <template name="cp_and_overwrite" value="#-----------------------------------------&#10;cp -Rv --remove-destination &lt;./src/*&gt; &lt;./dest&gt;&#10;#-----------------------------------------" description="copy and overwrite if exist" toReformat="false" toShortenFQNames="true" />
 </templateSet>

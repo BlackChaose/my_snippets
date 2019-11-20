@@ -3,3 +3,4 @@ node_modules/
 dist/app.js
 dist/index.js
 !dist/bundle.js
+update_snippets.sh
