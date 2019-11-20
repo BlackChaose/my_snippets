@@ -1,4 +1,4 @@
 <templateSet group="curl_console">
   <template name="send_post_json" value="curl -id '{&quot;key1&quot;:&quot;value1&quot;, &quot;key2&quot;:&quot;value2&quot;}' -H &quot;Content-Type: application/json&quot; -X POST http://localhost:5000/ajax_massmail.php&#10;" description="send post json" toReformat="false" toShortenFQNames="true" />
-  <template name="send_post_url_encoded" value="curl -id &quot;param1=value1&amp;param2=value2&quot; -X POST http://nik.reestr.local:5000/ajax_massmail.php" toReformat="false" toShortenFQNames="true" />
+  <template name="send_post_url_encoded" value="curl -id &quot;param1=value1&amp;param2=value2&quot; -X POST http://nik.reestr.local:5000/ajax_massmail.php" description="" toReformat="false" toShortenFQNames="true" />
 </templateSet>
