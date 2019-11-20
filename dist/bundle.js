@@ -8,7 +8,6 @@ exports.showSnippets = void 0;
 
 /* eslint-disable import/prefer-default-export */
 const showSnippets = cbFunc => {
-  console.log('in showSnippets');
   const path = 'data/';
   let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'curl_console', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
   names = names.map(el => `${path}${el}.xml`);
@@ -62,7 +61,6 @@ const showSnippets = cbFunc => {
       objRow.append(objCopy);
 
       if (namefile === 'data/sql_snippets.xml') {
-        console.log(namefile);
         const txL = objCol2.textContent.match(/<{.*}>/) ? objCol2.textContent.match(/<{.*}>/)[0].length : 0;
         const wl = objCol2.textContent.length - txL;
         objCol2.textContent = objCol2.textContent.slice(0, wl);
@@ -83,7 +81,6 @@ const showSnippets = cbFunc => {
       }
 
       objCopy.addEventListener('click', e => {
-        console.log(e.target.parentNode.previousSibling.childNodes[0].textContent);
         const inp = document.createElement('input');
         document.body.appendChild(inp);
         inp.value = e.target.parentNode.previousSibling.childNodes[0].textContent;
