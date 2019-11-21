@@ -168,4 +168,9 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
+  <template name="use_form_data" value="/********************************************************/&#10;var formElement = document.querySelector(&quot;form&quot;);&#10;var formData = new FormData(formElement);&#10;var request = new XMLHttpRequest();&#10;request.open(&quot;POST&quot;, &quot;submitform.php&quot;);&#10;formData.append(&quot;serialnumber&quot;, serialNumber++);&#10;request.send(formData);&#10;/********************************************************/" description="использование FormData" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
