@@ -122,4 +122,9 @@
       <option name="PHP Statement" value="true" />
     </context>
   </template>
+  <template name="recursive_iterator" value="//-------------------------------------------------------------------------------&#10;            $raw_array = [[1],[&quot;2&quot;=&gt;[3,4,5,6,7],&quot;8&quot;=&gt;[9,10,11]],[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],[[[d]]]];&#10;            $flatten_array = [];&#10;            $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($raw_array));&#10;            foreach($iterator as $value) {&#10;                array_push($flatten_array, $value);&#10;            }&#10;            print_r($flatten_array);&#10;//-------------------------------------------------------------------------------" description="SPL рекурсивный итератор" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
 </templateSet>
