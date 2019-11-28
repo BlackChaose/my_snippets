@@ -1,7 +1,18 @@
 /* eslint-disable import/prefer-default-export */
 const showSnippets = (cbFunc) => {
   const path = 'data/';
-  let names = ['js_snippets', 'php_snippets', 'sql_snippets', 'linux_commands', 'curl_console', 'Angular', 'AngularJS ', 'Handlebars', 'Twig', 'Zen HTML'];
+  let names = [
+    'js_snippets',
+    'php_snippets',
+    'sql_snippets',
+    '_UnitTest_',
+    'linux_commands',
+    'curl_console',
+    'Angular',
+    'AngularJS ',
+    'Handlebars',
+    'Twig',
+    'Zen HTML'];
 
   names = names.map((el) => `${path}${el}.xml`);
 
