@@ -173,5 +173,5 @@
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="class_validator" value="/*------------------------------------------------------------------*/&#10;/**&#10;*addCheck - callback functions for checking value&#10;*/&#10;export default class {&#10;  checks = [];&#10;&#10;  addCheck(fn) {&#10;    this.checks.push(fn);&#10;  }&#10;&#10;  isValid(data) {&#10;    return this.checks.every((fn) =&gt; fn(data));&#10;  }&#10;}&#10;/*-------------------------------------------------------------------------*/" toReformat="false" toShortenFQNames="true" />
+  <template name="class_validator" value="/*------------------------------------------------------------------*/&#10;/**&#10;*addCheck - callback functions for checking value&#10;*/&#10;export default class {&#10;  checks = [];&#10;&#10;  addCheck(fn) {&#10;    this.checks.push(fn);&#10;  }&#10;&#10;  isValid(data) {&#10;    return this.checks.every((fn) =&gt; fn(data));&#10;  }&#10;}&#10;/*-------------------------------------------------------------------------*/" description="" toReformat="false" toShortenFQNames="true" />
 </templateSet>
