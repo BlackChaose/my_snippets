@@ -8,6 +8,7 @@ const showSnippets = (cbFunc) => {
     'unit_tests',
     'linux_commands',
     'curl_console',
+    'git_snippets',
     'Angular',
     'AngularJS ',
     'Handlebars',

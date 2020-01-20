@@ -1,0 +1,7 @@
+<templateSet group="git_snippets">
+  <template name="git update-index" value="git update-index should do what you want&#10;&#10;#This will tell git you want to start ignoring the changes to the file&#10;git update-index --assume-unchanged path/to/file&#10;&#10;#When you want to start keeping track again&#10;git update-index --no-assume-unchanged path/to/file" description="exclude file from index" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Bash" value="true" />
+    </context>
+  </template>
+</templateSet>
