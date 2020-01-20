@@ -4,4 +4,9 @@
       <option name="Bash" value="true" />
     </context>
   </template>
+  <template name="git rm" value="# 1.If you want to push a deleted file to remote&#10;git add 'deleted file name'&#10;&#10;git commit -m'message'&#10;&#10;git push -u origin branch&#10;&#10;# 2. If you want to delete a file from remote and locally&#10;git rm 'file name'&#10;&#10;git commit -m'message'&#10;&#10;git push -u origin branch&#10;&#10;# 3. If you want to delete a file from remote only&#10;git rm --cached 'file name'&#10;&#10;git commit -m'message'&#10;&#10;git push -u origin branch" description="delete from repository" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Bash" value="true" />
+    </context>
+  </template>
 </templateSet>
