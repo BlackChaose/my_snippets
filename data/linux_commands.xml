@@ -13,4 +13,9 @@
     </context>
   </template>
   <template name="cp_and_overwrite" value="#-----------------------------------------&#10;cp -Rv --remove-destination &lt;./src/*&gt; &lt;./dest&gt;&#10;#-----------------------------------------" description="copy and overwrite if exist" toReformat="false" toShortenFQNames="true" />
+  <template name="ssh_by_pass" value="# connect to ssh server use password&#10;ssh -o IdentitiesOnly=yes &lt;username&gt;@&lt;address&gt;" description="connect use password" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Bash" value="true" />
+    </context>
+  </template>
 </templateSet>
