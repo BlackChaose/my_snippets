@@ -1,0 +1,7 @@
+<templateSet group="user">
+  <template name="location" value="var currentURL = window.location.href;&#10;var currentHost = window.location.host;&#10;var currentHostname = window.location.hostname;&#10;var currentPort = window.location.port;&#10;var currentProtocol = window.location.protocol;&#10;var currentPathname = window.location.pathname;&#10;var currenthash = window.location.hash;&#10;var currentSearchString = window.location.search;" description="window.location ..." toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
