@@ -174,4 +174,9 @@
     </context>
   </template>
   <template name="class_validator" value="/*------------------------------------------------------------------*/&#10;/**&#10;*addCheck - callback functions for checking value&#10;*/&#10;export default class {&#10;  checks = [];&#10;&#10;  addCheck(fn) {&#10;    this.checks.push(fn);&#10;  }&#10;&#10;  isValid(data) {&#10;    return this.checks.every((fn) =&gt; fn(data));&#10;  }&#10;}&#10;/*-------------------------------------------------------------------------*/" description="" toReformat="false" toShortenFQNames="true" />
+  <template name="location" value="var currentURL = window.location.href;&#10;var currentHost = window.location.host;&#10;var currentHostname = window.location.hostname;&#10;var currentPort = window.location.port;&#10;var currentProtocol = window.location.protocol;&#10;var currentPathname = window.location.pathname;&#10;var currenthash = window.location.hash;&#10;var currentSearchString = window.location.search;" description="window.location ..." toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
 </templateSet>
