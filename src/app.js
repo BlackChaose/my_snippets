@@ -7,6 +7,7 @@ const showSnippets = (cbFunc) => {
     'sql_snippets',
     'unit_tests',
     'linux_commands',
+    'Bash',
     'curl_console',
     'git_snippets',
     'Angular',
