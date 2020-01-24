@@ -35,7 +35,7 @@ const showSnippets = cbFunc => {
       objRow.className = 'row align-items-center justify-content-center mb-5';
       objRow.style = 'border: 1px solid gray;';
       objTitle = document.createElement('div');
-      objTitle.className = 'numTitle col-1';
+      objTitle.className = 'numTitle col';
       objTitle.textContent = objs[index].attributes.name.textContent;
       const objCol1 = document.createElement('div');
       objCol1.className = 'col-8 align-self-center';
