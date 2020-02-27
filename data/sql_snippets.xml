@@ -94,4 +94,9 @@
       <option name="SQL" value="true" />
     </context>
   </template>
+  <template name="sql_truk" value="/*---------------------------------------------------*/&#10;SELECT FIO_1,&#10;&#9;&#9; SUM(if(ee.id_etap = 1,1,0)) AS 'Отчёт #-1',&#10;&#9;&#9; SUM(if(ee.id_etap = 2,1,0)) AS 'Отчёт #-2',&#10;&#9;&#9; SUM(if(ee.id_etap = 3,1,0)) AS 'Отчёт #-3',&#10;&#9;&#9; SUM(if(ee.id_etap = 4,1,0)) AS 'Отчёт #-4',&#10;&#9;&#9; id_etap, id_user, id_work&#10;FROM dbtest.table1 AS ee&#10;INNER JOIN (&#10;SELECT id_user, CONCAT(family,' ',first_name , ' ', second_name, ' ') AS FIO&#10;FROM dbtest.users) AS qq ON ee.id_user = qq.id_user&#10;WHERE ee.id_etap IN (1, 2,  3, 4)&#10;GROUP BY id_user&#10;ORDER BY id_user&#10;/*---------------------------------------------------*/" description="count by diff columns" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
 </templateSet>
