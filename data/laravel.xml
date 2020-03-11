@@ -1,0 +1,7 @@
+<templateSet group="laravel">
+  <template name="clear_cache" value="//Clear route cache:&#10;//add to file routes/web.php&#10;//&#10; Route::get('/route-cache', function () {&#10; &#9;$exitCode = Artisan::call('route:cache');&#10; &#9;return 'Routes cache cleared';&#10; });&#10;&#10; //Clear config cache:&#10; Route::get('/config-cache', function () {&#10; &#9;$exitCode = Artisan::call('config:cache');&#10; &#9;return 'Config cache cleared';&#10; });&#10;&#10;// Clear application cache:&#10;Route::get('/clear-cache', function () {&#10;    $exitCode = Artisan::call('cache:clear');&#10;    return 'Application cache cleared';&#10;});&#10;&#10;// Clear view cache:&#10;Route::get('/view-clear', function () {&#10;    $exitCode = Artisan::call('view:clear');&#10;    return 'View cache cleared';&#10;});&#10;//---------------------------------------------------------------//" description="add routes for clear caches" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
