@@ -6,6 +6,7 @@ const showSnippets = (cbFunc) => {
     'php_snippets',
     'sql_snippets',
     'unit_tests',
+    'laravel',
     'linux_commands',
     'Bash',
     'curl_console',
