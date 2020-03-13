@@ -15,7 +15,8 @@ const showSnippets = (cbFunc) => {
     'AngularJS ',
     'Handlebars',
     'Twig',
-    'Zen HTML'];
+    'Zen HTML',
+    'theory'];
 
   names = names.map((el) => `${path}${el}.xml`);
 
