@@ -1,0 +1,7 @@
+<templateSet group="theory">
+  <template name="Auth_Auth" value="# 1. Authentication:&#10;# - Verifies you are who you say you are&#10;# - Methods:&#10;#&#9;a. Login form&#10;#&#9;b. HTTP authentication&#10;#&#9;c. HTTP digest&#10;#&#9;d. X.509 certificates&#10;#&#9;e. Custom authentication method&#10;# 2. Authorization&#10;# - Decides if you have permission to access a resource&#10;# - Methods:&#10;#&#9;a. Access controls for URLs&#10;#&#9;b. Secure objects and methods&#10;#&#9;c. Access control list (ACLs)&#10;# https://medium.com/datadriveninvestor/authentication-vs-authorization-716fea914d55" description="Authentication vs Authorization" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Bash" value="true" />
+    </context>
+  </template>
+</templateSet>
