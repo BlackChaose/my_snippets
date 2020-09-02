@@ -16,7 +16,8 @@ const showSnippets = (cbFunc) => {
     'Handlebars',
     'Twig',
     'Zen HTML',
-    'theory'];
+    'theory',
+    'python'];
 
   names = names.map((el) => `${path}${el}.xml`);
 
