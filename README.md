@@ -35,4 +35,8 @@
 
 • fix bug in app.js
 
+### update: 26-01-2022 ###
+
+* (fix): CVE-2021-3807 CVE-2020-28469
+
  
