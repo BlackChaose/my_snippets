@@ -1,7 +1,7 @@
 // import 'jquery'; //eslint-disable-line
 // import 'bootstrap';//eslint-disable-line
 // import 'popper.js';//eslint-disable-line//todo add mimify preset in babel for minify files!
-import { showSnippets } from './app.js';// eslint-disable-line
+import { showSnippets } from './app';
 
 const a = showSnippets;
 a(() => {

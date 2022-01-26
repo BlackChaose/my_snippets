@@ -65,8 +65,8 @@ const showSnippets = cbFunc => {
         const wl = objCol2.textContent.length - txL;
         objCol2.textContent = objCol2.textContent.slice(0, wl);
         const objImg = document.createElement('img');
-        const srcImgRaw = objs[index].attributes.description !== null && objs[index].attributes.description !== undefined ? // eslint-disable-line
-        objs[index].attributes.description.textContent : null; // eslint-disable-line
+        const srcImgRaw = objs[index].attributes.description !== null && objs[index].attributes.description !== undefined // eslint-disable-line
+        ? objs[index].attributes.description.textContent : null; // eslint-disable-line
 
         if (srcImgRaw !== null && srcImgRaw.length > 0) {
           const strSrcImgRaw = srcImgRaw.match(/<{.*}>/) ? srcImgRaw.match(/<{.*}>/)[0] : '';
@@ -121,12 +121,11 @@ exports.showSnippets = showSnippets;
 },{}],2:[function(require,module,exports){
 "use strict";
 
-var _app = require("./app.js");
+var _app = require("./app");
 
 // import 'jquery'; //eslint-disable-line
 // import 'bootstrap';//eslint-disable-line
 // import 'popper.js';//eslint-disable-line//todo add mimify preset in babel for minify files!
-// eslint-disable-line
 const a = _app.showSnippets;
 a(() => {
   const list = document.querySelectorAll('.collapse');
@@ -143,4 +142,4 @@ a(() => {
   });
 });
 
-},{"./app.js":1}]},{},[2]);
+},{"./app":1}]},{},[2]);

@@ -13,7 +13,7 @@ env:
   #jest: true
 
 # https://github.com/babel/babel-eslint
-parser: babel-eslint
+parser: "@babel/eslint-parser"
 
 extends:
   - 'airbnb-base'
